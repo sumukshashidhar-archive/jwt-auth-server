@@ -14,6 +14,9 @@ as one of the env variables
 ## GET /
 Returns 200 if the server is running without any errors
 
+## GET /key
+Returns the public key for your verification purposes
+
 ## POST /register
 ```
 @params
