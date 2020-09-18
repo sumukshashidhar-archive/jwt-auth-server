@@ -2,12 +2,8 @@
 A simple authentication server for JSON web token delivery
 
 # To run:
-Make a new .env file, and add
-```
-mongoURI
-```
-as one of the env variables
-
+Change the mongodb connection string.
+Run the deployment script. 
 
 # Endpoints
 
