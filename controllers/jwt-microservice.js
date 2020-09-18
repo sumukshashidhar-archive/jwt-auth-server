@@ -2,8 +2,8 @@ const jwt = require("jsonwebtoken")
 const fs = require("fs")
 const path = require("path")
 
-const publicKeyPath = path.join(__dirname, './../keys/private.pem');
-const privateKeyPath = path.join(__dirname, './../keys/public.pem');
+const publicKeyPath = path.join(__dirname, './../keys/public.pem');
+const privateKeyPath = path.join(__dirname, './../keys/private.pem');
 
 // key imports
 const publicKEY = fs.readFileSync(publicKeyPath, "utf-8")
