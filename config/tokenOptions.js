@@ -3,11 +3,11 @@ module.exports  = {
     signOptions: {
         issuer:  "Sigmoid Authentication Service",
         expiresIn:  "24h",
-        algorithm:  "ES512"
+        algorithm:  "RS512"
     },
     verifyOptions: {
         issuer:  "Sigmoid Authentication Service",
         expiresIn:  "24h",
-        algorithm:  "ES512"
+        algorithm:  "RS512"
        }
 }
