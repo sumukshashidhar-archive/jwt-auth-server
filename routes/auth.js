@@ -1,4 +1,5 @@
 var password_module = require("../controllers/auth-microservice")
+const registration = require("./../controllers/registration-service")
 var user = require("./../models/user")
 module.exports = (app) => {
 
@@ -28,6 +29,25 @@ module.exports = (app) => {
                 }
             }
         })
+    }), 
+
+
+    app.post('/register', async function(req, res) {
+        const response = await registration.makeUser(req.body.username, req.body.password, req.body.role);
+        if(response){
+            res.json({
+                "status":200,   
+                "message":"Successfully Created the User"
+            })
+            console.info("Created the user")
+        }
+        else{ 
+            res.json({
+                "status":500,
+                "message":"Did not create the user"
+            })
+        }
+        console.log(req.body)
     })
     
 }
