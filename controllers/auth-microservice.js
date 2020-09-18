@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt")
+const saltRounds = 9
 module.exports = {
 
     hashPassword: async function(plaintext_password) {

@@ -24,7 +24,7 @@ module.exports = {
         })
     },
 
-    signing: function(email) {
-        return jwt.sign({username:usnerame}, privateKEY, jENV.signOptions);
+    signing: function(username) {
+        return jwt.sign({username:username}, privateKEY, jENV.signOptions);
     }
 }
