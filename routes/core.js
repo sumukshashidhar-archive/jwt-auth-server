@@ -3,8 +3,8 @@ module.exports = (app) => {
 	app.get('/', async function(req, res) {
 		console.debug("Hit the homepage");
 		res.json({
-			"status":500,
-			"message":"internal-error"
+			"status":200,
+			"message":"API service is online"
 		})
 	})
 

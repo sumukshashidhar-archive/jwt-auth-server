@@ -1,6 +1,7 @@
 var password_module = require("../controllers/auth-microservice")
 const registration = require("./../controllers/registration-service")
-var user = require("./../models/user")
+const user = require("./../models/user")
+const tokenms = require("./../controllers/jwt-microservice")
 module.exports = (app) => {
 
 	app.post('/login', async function(req, res) {
@@ -13,6 +14,10 @@ module.exports = (app) => {
                     const resp = password_module.pass_validate(req.body.password, obj["password"]);
                     if(resp) {
                         // at this stage, we have successfully authenticated the user
+                        res.json({
+                            "status":200,
+                            "token":tokenms.signing(obj["username"], obj["role"])
+                        })
                     }
                     else{
                         res.json({
@@ -22,6 +27,7 @@ module.exports = (app) => {
                     }
                 }
                 else {
+                    console.log(obj)
                     res.json({
                         "status":404,
                         "message":"This user was not found"
