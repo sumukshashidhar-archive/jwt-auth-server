@@ -1,0 +1,26 @@
+{
+  "name": "jwt-auth-server",
+  "version": "1.0.0",
+  "description": "A simple authentication server where you can get JWT tokens by supplying credentials",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1sigmoid/jwt-auth-server.git"
+  },
+  "author": "Sumuk Shashidhar",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/1sigmoid/jwt-auth-server/issues"
+  },
+  "homepage": "https://github.com/1sigmoid/jwt-auth-server#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.5",
+    "pm2": "^4.4.1"
+  }
+}
