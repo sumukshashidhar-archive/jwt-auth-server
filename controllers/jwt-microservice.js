@@ -2,8 +2,8 @@ const jwt = require("jsonwebtoken")
 const fs = require("fs")
 const path = require("path")
 
-const publicKeyPath = path.join(__dirname, './../keys/private.key');
-const privateKeyPath = path.join(__dirname, './../keys/public.key');
+const publicKeyPath = path.join(__dirname, './../keys/private.pem');
+const privateKeyPath = path.join(__dirname, './../keys/public.pem');
 
 // key imports
 const publicKEY = fs.readFileSync(publicKeyPath, "utf-8")
@@ -25,7 +25,6 @@ module.exports = {
     },
 
     signing: function(username, role) {
-        console.log(privateKEY)
         return jwt.sign({username:username, role:role}, privateKEY, jENV.signOptions);
     }
 }
