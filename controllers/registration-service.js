@@ -1,5 +1,5 @@
 const user  = require("./../models/user")
-const hashing = require("./bcryptService")
+const hashing = require("./auth-microservice")
 const conflict = require("./conflictCheckService")
 module.exports = {
     makeUser: async function(email, password, role) {
@@ -10,7 +10,7 @@ module.exports = {
                 // if the function returns true, hash the password, and create the user
                 const hashedPassword = await hashing.hashPassword(password);
                 const newUser = new user({
-                    email:email,
+                    user:user,
                     password:hashedPassword,
                     role:role
                 })
