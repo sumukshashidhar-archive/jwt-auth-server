@@ -1,4 +1,5 @@
 var password_module = require("../controllers/auth-microservice")
+var user = require("./../models/user")
 module.exports = (app) => {
 
 	app.post('/login', async function(req, res) {
