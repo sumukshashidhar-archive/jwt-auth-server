@@ -58,15 +58,13 @@ module.exports = (app) => {
             const response = await registration.makeUser(req.body.username, req.body.password, req.body.role);
             if(response){
                 res.json({
-                    "status":200,   
                     "message":"Successfully Created the User"
                 })
                 console.info("Created the user")
             }
             else{ 
-                res.json({
-                    "status":500,
-                    "message":"Did not create the user"
+                res.status(409).json({
+                    "message":"Did not create the user as the user already exists."
                 })
             }
         }
