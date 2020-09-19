@@ -56,7 +56,7 @@ module.exports = (app) => {
                 })
             }
         }
-        else if((req.body.creation_password === 'someothersecret'||req.body.creation_password === 'secret') && req.body.role==='device') {
+        else if((req.body.creation_password === process.env.ADMIN_CREATION_SECRET||req.body.creation_password === process.env.DEVICE_CREATION_SECRET) && req.body.role==='device') {
             // this is for registration of devices
             const response = await registration.makeUser(req.body.username, req.body.password, req.body.role);
             if(response){
