@@ -4,5 +4,6 @@ module.exports = (app) => {
 
 	require('./routes/core')(app); 
 	require('./routes/auth')(app);
+	require('./routes/external')(app);
 
 }
