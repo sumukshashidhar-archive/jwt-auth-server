@@ -2,10 +2,10 @@
 A simple authentication server for JSON web token delivery
 
 # To run:
-Change the mongodb connection string.
-Run the deployment script. 
-
-Also. there needs to be
+1. Copy the env.template file to .env
+2. Change the secrets to your liking
+3. Change the mongoDB connection string to your database
+4. Specify the port and the IP that you want to run on.
 
 # Endpoints
 
