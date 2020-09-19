@@ -31,7 +31,7 @@ There are two different passwords specified, meant for different access levels i
 1. ADMIN_CREATION_PASSWORD
 2. DEVICE_CREATION_PASSWORD
 
-
+The admin creation password can be used to create a device, but not vice versa.
 
 
 # Endpoints
