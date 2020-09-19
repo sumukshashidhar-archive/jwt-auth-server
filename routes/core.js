@@ -22,8 +22,7 @@ module.exports = (app) => {
 	
 	app.get('/key', async function(req, res) {
 		console.debug("Key Request")
-		res.json({
-			"status":200, 
+		res.status(200).json({
 			"key":publicKEY
 		})
 	})
