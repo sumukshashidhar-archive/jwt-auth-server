@@ -7,6 +7,33 @@ A simple authentication server for JSON web token delivery
 3. Change the mongoDB connection string to your database
 4. Specify the port and the IP that you want to run on.
 
+
+
+# How - To's
+
+## How do you create a user?
+As part of zeta, there are two user roles that are currently defined
+
+1. admin
+2. device
+
+Both of these can be created using the /register route. However, the following parameters have to be supplied
+```
+@params
+username - the username / id of the device / admin
+password - the password of the device / admin
+role - can be admin / device
+creation_password - the password required to create the user
+```
+
+There are two different passwords specified, meant for different access levels in the .env file
+
+1. ADMIN_CREATION_PASSWORD
+2. DEVICE_CREATION_PASSWORD
+
+
+
+
 # Endpoints
 
 ## GET /
