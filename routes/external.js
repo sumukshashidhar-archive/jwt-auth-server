@@ -3,7 +3,6 @@ const jw = require('./../controllers/jwt-microservice')
 module.exports = (app) => {
     app.post('/api/authenticate/', async (req, res)=> {
         // first check if the token exists
-		console.log(req.body.token)
         if (req.body.token !== null && req.body.token !== undefined && req.body.token !== '') {
             // there is a token supplies, pass it to jwtms
             var response = await jw.verification(req.body.token)
