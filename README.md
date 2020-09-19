@@ -17,7 +17,8 @@ As part of zeta, there are two user roles that are currently defined
 1. admin
 2. device
 
-Both of these can be created using the /register route. However, the following parameters have to be supplied
+Both of these can be created using the /register route. However, the following parameters have to be supplied.
+
 ```
 @params
 username - the username / id of the device / admin
@@ -32,6 +33,8 @@ There are two different passwords specified, meant for different access levels i
 2. DEVICE_CREATION_PASSWORD
 
 The admin creation password can be used to create a device, but not vice versa.
+
+All the data supplied must be form data.
 
 
 # Endpoints
