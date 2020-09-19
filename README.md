@@ -21,10 +21,10 @@ Both of these can be created using the /register route. However, the following p
 
 ```
 @params
-username - the username / id of the device / admin
-password - the password of the device / admin
-role - can be admin / device
-creation_password - the password required to create the user
+username - the username / id of the device / admin - string
+password - the password of the device / admin - string
+role - can be admin / device - string
+creation_password - the password required to create the user - string
 ```
 
 There are two different passwords specified, meant for different access levels in the .env file
@@ -40,19 +40,26 @@ All the data supplied must be form data.
 # Endpoints
 
 ## GET /
-Returns 200 if the server is running without any errors
+Returns `status:200` and a `message` if the server is running without any errors
 
 ## GET /key
-Returns the public key for your verification purposes
+Returns the public key used to encrypt the current JWT. 
 
 ## POST /register
+
 ```
 @params
-username - string
-password - string
-role - string
+username - the username / id of the device / admin - string
+password - the password of the device / admin - string
+role - can be admin / device - string
+creation_password - the password required to create the user - string
+
+@return
+status:200 if successful
 ```
-Registers a user or device with the Sigmoid Auth Service. Returns 200 if the registration succeeds. 
+
+Registers an admin or device with the Sigmoid Auth Service. 
+Returns 200 if the registration succeeds. 
 
 ## POST /login
 ```
@@ -60,4 +67,15 @@ Registers a user or device with the Sigmoid Auth Service. Returns 200 if the reg
 username - string
 password - string
 ```
-Logs a user in. Returns a JWT token if successful, 403 if not. 
+Logs a user in. Returns a JWT token if successful, 403 if not.
+
+
+## POST /api/authenticate
+
+```
+@params
+token - JWT token signed by the Sigmoid Authentication Service - string
+
+@returns
+Status 200. and JWT claims if all is successful
+```
