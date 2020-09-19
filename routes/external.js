@@ -2,7 +2,8 @@ const { response } = require('express')
 const jw = require('./../controllers/jwt-microservice')
 module.exports = (app) => {
     app.post('/api/authenticate/', async (req, res)=> {
-        // first check if the token exists  
+        // first check if the token exists
+		console.log(req.body.token)
         if (req.body.token !== null && req.body.token !== undefined && req.body.token !== '') {
             // there is a token supplies, pass it to jwtms
             var response = await jw.verification(req.body.token)
@@ -12,6 +13,9 @@ module.exports = (app) => {
                     "decodedToken":response
                 })
             }
+			else{
+				res.status(403).json({"message":"Invalid Token and Signature"})
+			}
         }
         else {
             res.status(401).json({

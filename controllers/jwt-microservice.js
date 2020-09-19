@@ -17,11 +17,9 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             jwt.verify(token, publicKEY, jENV.verifyOptions, function(err, decodedToken) {
                 if(err){
-                    console.error(err)
                     resolve(false) 
                 }
                 else {
-                    console.log(decodedToken)
                     resolve(decodedToken)
                 }
             })
