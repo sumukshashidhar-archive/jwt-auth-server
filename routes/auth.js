@@ -2,6 +2,9 @@ var password_module = require("../controllers/auth-microservice")
 const registration = require("./../controllers/registration-service")
 const user = require("./../models/user")
 const tokenms = require("./../controllers/jwt-microservice")
+
+const ADMIN_CREATION_SECRET = 
+
 module.exports = (app) => {
 
 	app.post('/login', async function(req, res) {
@@ -39,7 +42,7 @@ module.exports = (app) => {
 
 
     app.post('/register', async function(req, res) {
-        if(req.body.creation_password === 'secret' && req.body.role==='admin') {
+        if((req.body.creation_password === process.env.ADMIN_CREATION_SECRET) && req.body.role==='admin') {
             const response = await registration.makeUser(req.body.username, req.body.password, req.body.role);
             if(response){
                 res.json({

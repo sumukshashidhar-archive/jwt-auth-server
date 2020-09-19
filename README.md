@@ -5,6 +5,8 @@ A simple authentication server for JSON web token delivery
 Change the mongodb connection string.
 Run the deployment script. 
 
+Also. there needs to be
+
 # Endpoints
 
 ## GET /
