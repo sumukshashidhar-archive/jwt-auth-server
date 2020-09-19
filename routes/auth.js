@@ -39,20 +39,32 @@ module.exports = (app) => {
 
 
     app.post('/register', async function(req, res) {
-        const response = await registration.makeUser(req.body.username, req.body.password, req.body.role);
-        if(response){
-            res.json({
-                "status":200,   
-                "message":"Successfully Created the User"
-            })
-            console.info("Created the user")
+        if(req.body.creation_password === 'secret') {
+
         }
-        else{ 
-            res.json({
-                "status":500,
-                "message":"Did not create the user"
+        else if(req.body.creation_password === 'someothersecret') {
+            // this is for registration of devices
+            const response = await registration.makeUser(req.body.username, req.body.password, req.body.role);
+            if(response){
+                res.json({
+                    "status":200,   
+                    "message":"Successfully Created the User"
+                })
+                console.info("Created the user")
+            }
+            else{ 
+                res.json({
+                    "status":500,
+                    "message":"Did not create the user"
+                })
+            }
+        }
+        else {
+            res.status(403).json({
+                "message":"There was no creation password specified for the current user or the creation password for a different role or the creation password was wrong"
             })
         }
+
         console.log(req.body)
     })
     
