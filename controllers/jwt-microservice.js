@@ -13,16 +13,20 @@ const privateKEY = fs.readFileSync(privateKeyPath, "utf-8")
 const jENV = require("./../config/tokenOptions")
 
 module.exports = {
-    verification: function(token) {
-        jwt.verify(token, publicKEY, jENV.verifyOptions, function(err, decodedToken) {
-            if(err){
-                console.error(err)
-                return False
-            }
-            else {
-                return decodedToken
-            }
+    verification: async function(token) {
+        return new Promise(async (resolve, reject) => {
+            jwt.verify(token, publicKEY, jENV.verifyOptions, function(err, decodedToken) {
+                if(err){
+                    console.error(err)
+                    resolve(false) 
+                }
+                else {
+                    console.log(decodedToken)
+                    resolve(decodedToken)
+                }
+            })
         })
+
     },
 
     signing: function(username, role) {
