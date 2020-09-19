@@ -17,9 +17,10 @@ module.exports = {
         jwt.verify(token, publicKEY, jENV.verifyOptions, function(err, decodedToken) {
             if(err){
                 console.error(err)
+                return False
             }
             else {
-                console.debug(decodedToken)
+                return decodedToken
             }
         })
     },
